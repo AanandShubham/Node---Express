@@ -1,0 +1,82 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,body{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(54, 54, 54);
+}
+
+header{
+    width: 100%;
+    height: 8vh;
+    background-color: darkgray;
+    text-align: center;
+    padding-top: 1vh;
+}
+
+main{
+    width: calc(100vw - 10px);
+    height: 40vh;
+    background-color: rgb(86, 76, 77);
+    margin: 5px 5px;
+   
+}
+
+.NoteForm{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#inp_title{
+    width: 80vw;
+    height: 12%;
+    background-color: rgb(53, 46, 35);
+    outline: none;
+    border: none;
+    margin-top: 1vh; 
+    font-size: 26px;  
+    color: white;
+}
+
+#inp_note{
+    width: 80vw;
+    height: 65%;
+    background-color: rgb(53, 46, 35);
+    outline: none;
+    border: none;
+    margin-top: 1vh;  
+    margin-bottom: 1vh;
+    font-size: 20px;  
+    color: white;
+}
+
+#btn{
+    width: 15vw;
+    height: 5vh;
+    margin-left: 35vw;
+    background-color:  rgb(53, 46, 35);
+    border: 1px solid rgb(133, 132, 129);
+    color:rgb(199, 166, 166);
+}
+
+.Notes{
+   width:calc(100vw - 10px);
+   display:flex;
+   flex-wrap: wrap;
+   gap: 10px;
+}
+
+.note{
+    width: fit-content;
+    max-width: 200px;
+    max-height: 200px;
+    height: fit-content;
+    border: 2px solid black;
+    overflow: scroll;
+}

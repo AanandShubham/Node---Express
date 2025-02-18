@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes</title>
+    <link rel="stylesheet" href="/Styles/style.css">
+    <!-- <script src="https://unpkg.com/@tailwindcss/browser@4"></script> -->
+</head>
+<body>
+    <header>
+        <h1 class ="text-xl font-bold underline">Welcome to Notes Taking Webpage </h1>
+    </header>
+    <main>
+        <div class="bg-yellow-300 w-full h-[300px] NoteForm ">
+            <form action="/add" method="post">
+                <input id ="inp_title" type="text" name="title" placeholder="Title">
+                <br>
+                <textarea id="inp_note" name="note" ></textarea>
+                <br>
+                <input id = "btn" type="submit" value="Add Notes">
+            </form>
+        </div>
+    </main>
+    
+    <div class="Notes">
+        
+            <% if(notes.length != 0){ %>
+                <% notes.forEach((note)=>{ %>
+                    <div class="note">
+                        <h3><%=note.title%> </h3>
+                        <p><%=note.data%> </p>
+                    </div>
+                    <!-- foreach end here  -->
+                <% }); %>   
+            <%} else {%>
+                <h3>File is empty</h3>
+            <% } %>
+        </div>
+       
+    </div>
+
+</body>
+</html>

@@ -43,7 +43,7 @@ app.post('/add',(req,res)=>{
     res.redirect('/');
 })
 
-app.get("/delete/:file",(req,res)=>{
+app.post("/delete/:file",(req,res)=>{
     const fileToDelete = req.params.file
     const files = fs.readdirSync("./files/");
     console.log("files : ",files)

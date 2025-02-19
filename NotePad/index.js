@@ -10,11 +10,6 @@ app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 app.use(express.static(path.join(__dirname,'public')))
 
-// app.use((req,res,next)=>{
-//     console.log(req.query.name);
-//     next();
-// })
-
 app.get('/',function(req,res){
     
     fs.readdir("./files/",(err,files)=>{
@@ -48,6 +43,24 @@ app.post('/add',(req,res)=>{
     res.redirect('/');
 })
 
+app.get("/delete/:file",(req,res)=>{
+    const fileToDelete = req.params.file
+    const files = fs.readdirSync("./files/");
+    console.log("files : ",files)
+
+    let data = files.findIndex((file)=> file === fileToDelete);
+
+    if(data >= 0){
+        console.log(fileToDelete , " Found in database")
+        fs.unlinkSync("./files/"+fileToDelete)
+        console.log("File Deleted")
+
+    }
+    else{
+        console.log(fileToDelete, "\nNot found !!!!")
+    }
+    res.redirect("/")
+})
 
 app.listen(3000,function(){
     console.log("Server is running\n")

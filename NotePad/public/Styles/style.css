@@ -80,3 +80,10 @@ main{
     border: 2px solid black;
     overflow: scroll;
 }
+
+a{
+    background-color: rgb(80, 105, 105);
+    margin-bottom: 5px;
+    margin-left: 100px;
+    cursor: pointer;
+}

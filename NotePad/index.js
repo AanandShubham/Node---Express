@@ -2,6 +2,7 @@ const express = require('express')
 const path = require('path')
 const fs = require('fs')
 const { title } = require('process')
+const { log } = require('console')
 const app = express()
 
 app.set('view engine','ejs')
@@ -9,6 +10,8 @@ app.set('view engine','ejs')
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 app.use(express.static(path.join(__dirname,'public')))
+
+
 
 app.get('/',function(req,res){
     
@@ -21,11 +24,23 @@ app.get('/',function(req,res){
                 data:fs.readFileSync("./files/"+file,"utf-8")
             })
         })
-
+        console.log("---------------------------------\n")
+        console.log(req.headers)
+        console.log("-----------------------------------")
         res.render("Page",{notes:dataFile})
     })
 
 })
+
+// app.get("/test",async(req,res)=>{
+//     let filedata = ""
+//     fs.readFile("./files/age.txt",async (err,data)=>{
+//        filedata = data; 
+//        console.log("Data in Fn : ",data)
+//     })
+
+//     console.log("Data : ", filedata);
+// })
 
 app.post('/add',(req,res)=>{
     const title = req.body.title;
@@ -65,4 +80,5 @@ app.post("/delete/:file",(req,res)=>{
 app.listen(3000,function(){
     console.log("Server is running\n")
     console.log("Listening at port : 3000");
+    console.log("Link : http://localhost:3000/")
 })
